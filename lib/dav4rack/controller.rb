@@ -233,6 +233,7 @@ module DAV4Rack
               end
             end
           end
+          response.headers["Lock-Token"] = locktoken
           response.status = resource.exist? ? OK : Created
         rescue LockFailure => e
           multistatus do |xml|
